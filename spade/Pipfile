@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+spade = "*"
+aiogram = "==2.15"
+emoji = "*"
+mongoengine = "*"
+matplotlib = "*"
+python-dotenv = "*"
+requests = "*"
+autobahn = "*"
+get-docker-secret = "*"
+validators = "*"
+
+[requires]
+python_version = "3.7"

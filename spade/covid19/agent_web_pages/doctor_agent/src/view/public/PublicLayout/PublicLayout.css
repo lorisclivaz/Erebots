@@ -1,0 +1,28 @@
+body {
+  margin: auto 0;
+  background-color: #f4f3ef;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.j-container {
+  padding-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* temporary fix to modal causing the scrollbar to disappear */
+/* .modal{
+    overflow-y: auto;
+}
+
+.modal-open{
+    overflow:auto;
+    overflow-x:hidden;
+} */

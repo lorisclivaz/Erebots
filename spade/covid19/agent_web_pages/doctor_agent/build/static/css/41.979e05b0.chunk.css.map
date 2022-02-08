@@ -1,0 +1,1 @@
+{"version":3,"sources":["UserGoals.css"],"names":[],"mappings":"AAAA,+BACE,iBACF,CAEA,mCACE,eACF","file":"41.979e05b0.chunk.css","sourcesContent":[".user-goals-table .rdt_Table * {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.user-goals-table .rdt_TableHead * {\r\n  font-weight: bold;\r\n}\r\n"]}

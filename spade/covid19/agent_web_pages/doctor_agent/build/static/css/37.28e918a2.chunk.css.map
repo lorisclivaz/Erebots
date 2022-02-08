@@ -1,0 +1,1 @@
+{"version":3,"sources":["Questions.css"],"names":[],"mappings":"AAAA,8BACE,iBACF,CAEA,kCACE,eACF","file":"37.28e918a2.chunk.css","sourcesContent":[".questions-table .rdt_Table * {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.questions-table .rdt_TableHead * {\r\n  font-weight: bold;\r\n}\r\n"]}

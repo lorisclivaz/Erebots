@@ -1,0 +1,1 @@
+{"version":3,"sources":["Strategies.css"],"names":[],"mappings":"AAAA,+BACE,iBACF,CAEA,mCACE,eACF","file":"38.b3a104dc.chunk.css","sourcesContent":[".strategies-table .rdt_Table * {\n  font-size: 0.875rem;\n}\n\n.strategies-table .rdt_TableHead * {\n  font-weight: bold;\n}\n"]}

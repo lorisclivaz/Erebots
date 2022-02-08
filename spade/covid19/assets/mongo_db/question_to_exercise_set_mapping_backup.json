@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5ee0d1064979690a30255fc7"},"asked_question":{"$oid":"5ee0cf2e4979690a30255fc0"},"user_answer":{"$numberInt":"0"},"suitable_exercise_sets":[{"$oid":"5ee0ce184979690a30255fba"},{"$oid":"5ee0cef2f7eb1e0a30b76713"},{"$oid":"5ee7368ba7455c25545f9d0f"}]}
+{"_id":{"$oid":"5ee0d20ff7eb1e0a30b76716"},"asked_question":{"$oid":"5ee0cf2e4979690a30255fc0"},"user_answer":{"$numberInt":"2"},"suitable_exercise_sets":[{"$oid":"5ee0cef2f7eb1e0a30b76713"}]}
+{"_id":{"$oid":"5ee0d250f7eb1e0a30b76717"},"asked_question":{"$oid":"5ee0cf2e4979690a30255fc0"},"user_answer":{"$numberInt":"4"},"question_shift":"NEXT"}
+{"_id":{"$oid":"5ee736d8a7455c25545f9d10"},"asked_question":{"$oid":"5ee0cf2e4979690a30255fc0"},"user_answer":{"$numberInt":"3"},"question_shift":"NEXT"}
+{"_id":{"$oid":"5ee7a81fa7455c25545f9d11"},"asked_question":{"$oid":"5ee0cf2e4979690a30255fc0"},"user_answer":{"$numberInt":"1"},"suitable_exercise_sets":[{"$oid":"5ee0cef2f7eb1e0a30b76713"},{"$oid":"5ee7368ba7455c25545f9d0f"}]}
+{"_id":{"$oid":"5ee86c51d4eccf3730469714"},"asked_question":{"$oid":"5ee0cf7c4979690a30255fc2"},"user_answer":{"$numberInt":"0"},"question_shift":"PREVIOUS"}
+{"_id":{"$oid":"5ee86c61d4eccf3730469715"},"asked_question":{"$oid":"5ee0cf7c4979690a30255fc2"},"user_answer":{"$numberInt":"1"},"suitable_exercise_sets":[{"$oid":"5ee7368ba7455c25545f9d0f"}]}
+{"_id":{"$oid":"5ee86c6bd4eccf3730469716"},"asked_question":{"$oid":"5ee0cf7c4979690a30255fc2"},"user_answer":{"$numberInt":"2"},"suitable_exercise_sets":[{"$oid":"5ee0ce184979690a30255fba"},{"$oid":"5ee7368ba7455c25545f9d0f"}]}
+{"_id":{"$oid":"5ee86c7bd4eccf3730469717"},"asked_question":{"$oid":"5ee0cf7c4979690a30255fc2"},"user_answer":{"$numberInt":"3"},"suitable_exercise_sets":[{"$oid":"5ee0ce184979690a30255fba"},{"$oid":"5ee7368ba7455c25545f9d0f"}]}
+{"_id":{"$oid":"5ee86c8bd4eccf3730469718"},"asked_question":{"$oid":"5ee0cf7c4979690a30255fc2"},"user_answer":{"$numberInt":"4"},"question_shift":"NEXT"}

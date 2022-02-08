@@ -1,0 +1,11 @@
+FROM nikolaik/python-nodejs:python3.7-nodejs13
+
+# Install the python dependencies
+RUN pip install pipenv
+COPY ./Pipfile* /
+RUN pipenv install --deploy --system
+
+# Copy the rest of the files
+COPY ./ /
+
+CMD python -u ./telegram_bot_main.py

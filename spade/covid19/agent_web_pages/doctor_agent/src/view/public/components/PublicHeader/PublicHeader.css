@@ -1,0 +1,21 @@
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.logo-img {
+    padding: 7px;
+    width: 40px;
+}
+
+/*navbar fixed on top*/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+i.access {
+    font-size: 1.2rem;
+}

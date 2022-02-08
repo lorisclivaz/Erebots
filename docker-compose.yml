@@ -1,0 +1,126 @@
+version: "3.4"
+
+services:
+  spade_telegram:
+    build:
+      context: ./spade
+      dockerfile: Dockerfile_Telegram
+    container_name: spade_telegram
+    env_file:
+      - deployment.env
+    networks:
+      - mas
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: "200"
+
+  spade_custom_chat:
+    build:
+      context: ./spade
+      dockerfile: Dockerfile_CustomChat
+    container_name: spade_custom_chat
+    env_file:
+      - deployment.env
+    secrets:
+      - database_server_password
+    ports:
+      - "6789:6789"
+    networks:
+      - mas
+      - proxy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: "200"
+    labels:
+      - traefik.enable=true
+      - traefik.backend=spade_custom_chat
+      - traefik.docker.network=proxy
+      - traefik.port=6789
+
+  spade_doctor:
+    build:
+      context: ./spade
+      dockerfile: Dockerfile_Doctor
+    container_name: spade_doctor
+    env_file:
+      - deployment.env
+    secrets:
+      - database_server_password
+    ports:
+      - "8080:80"
+    networks:
+      - mas
+      - proxy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: "200"
+    labels:
+      - traefik.enable=true
+      - traefik.backend=spade_doctor
+      - traefik.docker.network=proxy
+      - traefik.port=80
+      ## Routers Rules
+      - traefik.http.routers.spade.entrypoints=http
+      - traefik.http.routers.spade.rule=Host(`${WEB_SERVER_PUBLIC_IP}`)
+      - traefik.http.routers.spade.middlewares=https-redirect@file
+      - traefik.http.routers.spade-secure.entrypoints=https
+      - traefik.http.routers.spade-secure.rule=Host(`${WEB_SERVER_PUBLIC_IP}`)
+      - traefik.http.routers.spade-secure.tls=true
+      - traefik.http.routers.spade-secure.tls.certresolver=http
+
+  prosody_server:
+    image: unclev/prosody-docker-extended:0.11 
+    container_name: prosody_server
+    volumes:
+      - './containers/prosody/config:/etc/prosody'
+      - './data/prosody:/var/lib/prosody'
+    environment:
+      - LOCAL=spade
+      - DOMAIN=localhost
+      - PASSWORD=juliet4ever
+    ports:
+      - "8081:80"
+      - "5222:5222"
+      - "5269:5269"
+      - "5347:5347"
+      - "5280:5280"
+      - "5582:5582"
+    networks:
+      - mas
+
+  mongo_db:
+    image: mongo:4
+    container_name: mongo_db
+    volumes:
+      - './data/db:/data/db'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/database_server_password
+    secrets:
+      - database_server_password
+    ports:
+      - "27017:27017"
+    restart: "no"
+    networks:
+      - mas
+      - proxy
+    labels:
+      - "traefik.backend=mongo_db"
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+
+networks:
+  proxy:
+    external: true
+  mas:
+    external: false
+
+secrets:
+  database_server_password:
+    file: ./secrets/mongodb_password.txt

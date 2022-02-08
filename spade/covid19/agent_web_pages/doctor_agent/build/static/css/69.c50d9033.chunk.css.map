@@ -1,0 +1,1 @@
+{"version":3,"sources":["Users.css"],"names":[],"mappings":"AAAA,0BACE,iBACF,CAEA,8BACE,eACF","file":"69.c50d9033.chunk.css","sourcesContent":[".users-table .rdt_Table * {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.users-table .rdt_TableHead * {\r\n  font-weight: bold;\r\n}\r\n"]}

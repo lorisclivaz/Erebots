@@ -1,0 +1,1 @@
+{"version":3,"sources":["Strategy.css"],"names":[],"mappings":"AAAA,YACE,UAAW,CACX,WAAY,CACZ,aAAgB,CAChB,kBAAmB,CACnB,iBAAkB,CAClB,cAAe,CACf,mBACF","file":"65.6914e075.chunk.css","sourcesContent":[".btn-circle {\n  width: 30px;\n  height: 30px;\n  padding: 6px 0px;\n  border-radius: 15px;\n  text-align: center;\n  font-size: 12px;\n  line-height: 1.42857;\n}\n"]}

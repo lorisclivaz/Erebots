@@ -1,0 +1,20 @@
+FROM nikolaik/python-nodejs:python3.7-nodejs13
+
+EXPOSE 80
+
+# Install the python dependencies
+RUN pip install pipenv
+COPY ./Pipfile* /
+RUN pipenv install --deploy --system
+
+# Copy the rest of the files
+COPY ./ /
+
+RUN npm --prefix ./covid19/agent_web_pages/doctor_agent install
+RUN npm --prefix ./covid19/agent_web_pages/doctor_agent rebuild node-sass
+RUN npm --prefix ./covid19/agent_web_pages/doctor_agent run build
+
+# Copy flutter-web app build inside doctor folder for web serving
+COPY ./web /covid19/agent_web_pages/doctor_agent/build/webapp
+
+CMD python -u ./doctor_agent_main.py

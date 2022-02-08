@@ -1,0 +1,1 @@
+{"version":3,"sources":["ExerciseSets.css"],"names":[],"mappings":"AAAA,kCACE,iBACF,CAEA,sCACE,eACF","file":"46.76c01346.chunk.css","sourcesContent":[".exercise-sets-table .rdt_Table * {\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.exercise-sets-table .rdt_TableHead * {\r\n  font-weight: bold;\r\n}\r\n"]}

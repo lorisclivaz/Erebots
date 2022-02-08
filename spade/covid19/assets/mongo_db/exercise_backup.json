@@ -1,0 +1,6 @@
+{"_id":{"$oid":"5edf5b3d1f8f0746d85b1d2d"},"text_en":"Exercise 1","gif_path":"covid19/assets/gif/test1.gif"}
+{"_id":{"$oid":"5edf65151f8f0746d85b1d2e"},"text_en":"Exercise 2","gif_path":"covid19/assets/gif/test2.gif"}
+{"_id":{"$oid":"5ee0cd90f7eb1e0a30b76710"},"text_en":"Exercise 3","gif_path":"covid19/assets/gif/test3.gif"}
+{"_id":{"$oid":"5ee0cda1f7eb1e0a30b76711"},"text_en":"Exercise 4","gif_path":"covid19/assets/gif/test4.gif"}
+{"_id":{"$oid":"5ee0cdc2f7eb1e0a30b76712"},"text_en":"Exercise 5","gif_path":"covid19/assets/gif/test5.gif"}
+{"_id":{"$oid":"5ee73669a7455c25545f9d0e"},"text_en":"Exercise 6","gif_path":"covid19/assets/gif/test6.gif"}

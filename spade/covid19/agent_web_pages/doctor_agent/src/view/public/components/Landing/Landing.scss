@@ -1,0 +1,119 @@
+h1, .h1 {
+  font-size: 3.5em;
+  line-height: 1.15;
+  margin-bottom: 30px;
+}
+
+.no-pam {
+  margin: auto 0;
+  padding: 0;
+}
+
+.logo-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8rem;
+}
+
+.logo-center > img {
+  width: 10vw;
+}
+
+.land {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  font-size: x-large;
+}
+
+/* INFOS */
+.info {
+  padding: 20px;
+}
+
+.grid-wrapper {
+  padding: 8vh 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 95%;
+  background-color: rgba(185, 185, 185, 0.945);
+  height: 1px;
+}
+
+p.sub {
+  font-size: .9rem;
+  font-style: italic;
+}
+
+p.cit {
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+.info-img > img {
+  width: 100%;
+}
+
+/********/
+
+@media screen and (max-width: 600px) {
+  .land {
+    font-size: .7rem;
+  }
+
+  .logo-center > img {
+    width: 20vw;
+  }
+
+  .info-img {
+    order: -1;
+  }
+
+}
+
+@function shadow($key) {
+  @if map-has-key($shadow, $key) {
+    @return map-get($shadow, $key);
+  }
+  @error "Nonexistent key.";
+  @return null;
+}
+
+$shadow: (
+  "blur-radius" : 10px,
+  "color" : #333333,
+  "height" : 20px,
+  "position" : null, // Must be null or "-"
+  "width" : 400px
+);
+
+
+.shadow-separator {
+  height: shadow("height");
+  margin: 10px auto;
+  overflow: hidden;
+  width: shadow("width") - 60px; // shadow div overflow fix (maybe change later)
+  &:after {
+    border-radius: 100%;
+    box-shadow: 0 0 shadow("blur-radius") shadow("color");
+    content: "";
+    display: block;
+    height: inherit;
+    position: relative;
+    @if shadow("height") < shadow("width") {
+      top: #{shadow("position")}100%;
+    } @else {
+      left: #{shadow("position")}100%;
+    }
+  }
+}
