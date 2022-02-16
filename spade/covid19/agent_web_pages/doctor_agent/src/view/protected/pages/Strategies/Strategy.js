@@ -51,27 +51,60 @@ const currentScriptName = "Strategy.js";
 let strategy = dataJson.strategy;
 const nodes = dataJson.strategy.nodes;
 
-//Adding node to strategy hardcoded
+//Adding node to strategy hardcoded (Test)
 const test = {
-  id: "nodeId3",
-  name: "Node 3",
-}
-
-
-
+  "id": "nodeId3",
+  "name": "Node 3",
+  "parent": null,
+  "action": {
+    "type": {
+      "see_examples": {}
+    },
+    "trigger": "22:15:00"
+  },
+  "transition": {
+    "type": {
+      "see_examples": {}
+    },
+    "delay": 60
+  }
+};
 
 
 //Create the links for the node
 function createLinks(strategy){
   let links = [];
 
+  //Loop to link the node about the strategy
   for(let node of strategy.nodes){
     links.push({ source: strategy.id, target: node.id},)
   }
-
   return links;
 }
+//Test will be ok to had const test to the json file
+function addingJsonFile()
+{
+  let RNFS = require('react-native-fs');
 
+  var filePath ='./strategyV2.json';
+
+  RNFS.writeFile(filePath[strategy], test, 'utf8')
+    .then((success) => {
+      console.log('SUCCESS');
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+//Delete test okay with the key parent so if you want delete a node, the key will be "nodes" otherwise it will be "strategy" or something else
+function deleteJsonFile(keyParent){
+  let jsonStr = dataJson;
+  let key = keyParent;
+  let cleanJsonRegex = new RegExp(`,.*${key}.*[, ]`, "g");
+  let nameJsonStr = jsonStr.replace(cleanJsonRegex, "");
+  console.log(nameJsonStr);
+}
 
 class Strategy extends Component {
   strategyDataField = "strategyData";
@@ -113,11 +146,11 @@ class Strategy extends Component {
 
   }
 
-//On node click
+  //Methods for the nodes
+  //On node click
   _handleNodeClick = node => {
     console.log('In node click handler');
   }
-
   //on canva click
   _handleCanvasClick = event => {
     if (!this.state.isNodeFocused)
@@ -125,8 +158,7 @@ class Strategy extends Component {
       console.log('In canvas click handler');
     }
   }
-
-//on node hover
+  //on node hover
   _handleNodeHover = node => {
     this.setState(
       {isNodeFocused: node ? true : false}

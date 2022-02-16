@@ -37,6 +37,23 @@
           },
           "delay": 30
         }
+      },
+      {
+        "id": "nodeId3",
+        "name": "Node 3",
+        "parent": null,
+        "action": {
+          "type": {
+            "see_examples": {}
+          },
+          "trigger": "22:15:00"
+        },
+        "transition": {
+          "type": {
+            "see_examples": {}
+          },
+          "delay": 60
+        }
       }
     ]
 
