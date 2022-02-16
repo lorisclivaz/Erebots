@@ -192,7 +192,7 @@ certificates = "certs"
 -- Settings under each VirtualHost entry apply *only* to that host.
 
 VirtualHost "localhost"
---VirtualHost ""example.com"
+--VirtualHost ""localhost"
 --	certificate = "/path/to/example.crt"
 ------ Components ------
 -- You can specify components to add hosts that provide special services,

@@ -1,0 +1,44 @@
+{
+  "strategy": {
+    "id": "5edf5b3d1f8f0746d85b1d2d",
+    "name": "Strategy 1",
+    "description": "This strategy is used to...",
+    "nodes": [
+      {
+        "id": "nodeId1",
+        "name": "Node 1",
+		"parent": null,
+        "action": {
+          "type": {
+            "see_examples": {}
+          },
+          "trigger": "22:15:00"
+        },
+        "transition": {
+          "type": {
+            "see_examples": {}
+          },
+          "delay": 60
+        }
+      },
+      {
+        "id": "nodeId2",
+        "name": "Node 2",
+		"parent": "nodeId1",
+        "action": {
+          "type": {
+            "": {}
+          },
+          "delay": 300
+        },
+        "transition": {
+          "type": {
+            "see_examples": {}
+          },
+          "delay": 30
+        }
+      }
+    ]
+
+  }
+}

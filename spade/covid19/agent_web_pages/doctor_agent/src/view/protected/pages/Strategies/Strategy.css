@@ -7,3 +7,41 @@
   font-size: 12px;
   line-height: 1.42857;
 }
+
+.links {
+ stroke: #999;
+  stroke-opacity: 0.4;
+ stroke-width: 1px;
+}
+
+text {
+  pointer-events: none;
+  fill: #000;
+  font: 10px sans-serif;
+}
+
+svg{
+  border:1px solid #000;
+}
+
+.links {
+  stroke: #999;
+  stroke-opacity: 0.4;
+  stroke-width: 1px;
+}
+
+text {
+  pointer-events: none;
+  fill: #000;
+  font: 10px sans-serif;
+}
+
+.graph {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 50%;
+  alignment: left;
+}
+
+

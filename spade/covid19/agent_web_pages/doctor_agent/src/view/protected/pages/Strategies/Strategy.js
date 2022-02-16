@@ -1,4 +1,4 @@
-import React, {useState, Component} from 'react';
+import React, {useState, Component, useCallback} from 'react';
 import {
   Button,
   Card,
@@ -42,13 +42,39 @@ import {
   STRATEGY_DESCRIPTION_FIELD_NAME
 } from "../../../../model/StrategyFieldNamesDictionaryToDescription";
 import {USER_GOAL_ID_FIELD_NAME} from "../../../../model/UserGoalFieldNamesDictionaryToDescription";
+import {ForceGraph2D} from 'react-force-graph'
+import * as dataJson from './strategyV2.json';
 
 const currentScriptName = "Strategy.js";
 
+//Parse JSON
+let strategy = dataJson.strategy;
+const nodes = dataJson.strategy.nodes;
+
+//Adding node to strategy hardcoded
+const test = {
+  id: "nodeId3",
+  name: "Node 3",
+}
+
+
+
+
+
+//Create the links for the node
+function createLinks(strategy){
+  let links = [];
+
+  for(let node of strategy.nodes){
+    links.push({ source: strategy.id, target: node.id},)
+  }
+
+  return links;
+}
+
+
 class Strategy extends Component {
-
   strategyDataField = "strategyData";
-
   fieldNames = [
     this.strategyDataField,
   ];
@@ -65,6 +91,7 @@ class Strategy extends Component {
       uploadingChanges: false,
       errorMessage: '',
       deletionModalOpen: false,
+      isNodeFocused: false,
     };
 
     this.setCurrentStateFromData.bind(this);
@@ -83,6 +110,27 @@ class Strategy extends Component {
     }
 
     this.data2 = [12, 5, 6, 6, 9, 10]
+
+  }
+
+//On node click
+  _handleNodeClick = node => {
+    console.log('In node click handler');
+  }
+
+  //on canva click
+  _handleCanvasClick = event => {
+    if (!this.state.isNodeFocused)
+    {
+      console.log('In canvas click handler');
+    }
+  }
+
+//on node hover
+  _handleNodeHover = node => {
+    this.setState(
+      {isNodeFocused: node ? true : false}
+    );
   }
 
   setCurrentStateFromData(data) {
@@ -173,7 +221,12 @@ class Strategy extends Component {
     this.toggleDeletionModal()
   }
 
+
+
+
+
   render() {
+
     return (
       <div className="animated fadeIn">
         <Row>
@@ -217,6 +270,7 @@ class Strategy extends Component {
               <CardBody>
                 {(() => {
                   const formComponent = (
+
                     <div>
                       <Form id={this.formID} action="" method="post" encType="multipart/form-data"
                             className="form-horizontal">
@@ -245,11 +299,30 @@ class Strategy extends Component {
                           })
                         }
                         <hr/>
+
                         <div className="container-fluid">
                           <div className="row">
-                            <div className="col-8 border-right">
-                              Graph...
-                            </div>
+                              <div  onClick={this._handleCanvasClick}>
+                                <ForceGraph2D className={"graph"} ref={el=> this.fg = el}
+                                              graphData={{ nodes: [strategy, ...nodes], links: createLinks(strategy)}}
+                                              //other props
+                                              onNodeClick={this._handleNodeClick}
+                                              onNodeHover={this._handleNodeHover}
+
+                                              nodeLabel={(nodes) => {
+                                                return nodes.id;
+                                              }}
+
+                                              linkVisibility={true}
+                                              nodeVisibility={true}
+                                              enableZoomInteraction={true}
+                                              maxZoom={400}
+                                              linkDirectionalArrowRelPos={3.5}
+
+                                />
+                              </div>
+
+
                             <div className="col-4 border">
                               <div className="row m-2 mr-0">
                                 <div className="col-md-10">
